@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pokémon Memory, un juego de memoria con Pokémon.">
+    <title>Pokémon Memory</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+    <!-- cgpt -->
+
+    <main>
+        <h1>Pokémon Memory</h1>
+
+        <!-- Registration view -->
+        <section id="registration">
+            <h2>Registro de jugador</h2>
+
+            <form id="user-form">
+                <div>
+                    <label for="username">Nombre de usuario</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="email">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+
+        <!-- Game view -->
+        <section id="game" hidden>
+            <div class="game-area">
+                <h2>¡Encuentra las parejas!</h2>
+
+                <form id="game-form">
+                    <label for="cards-number">Número de cartas</label>
+                    <input
+                        type="number"
+                        id="cards-number"
+                        name="cards-number"
+                        min="2"
+                        step="2"
+                        required
+                    >
+
+                    <button type="submit" id="play-btn">
+                        Empezar partida
+                    </button>
+                </form>
+
+                <p>Tiempo: <span id="timer">0m 0s</span></p>
+
+                <div id="game-board" aria-label="Tablero de Pokémon"></div>
+
+                <button type="button" id="logout-btn">
+                    Cerrar sesión
+                </button>
+            </div>
+
+            <aside class="ranking-area">
+                <h2>Ranking</h2>
+
+                <div id="ranking"></div>
+            </aside>
+        </section>
+
+        <dialog id="modal">
+            <p id="modal-message"></p>
+            <button type="button" id="modal-close">Cerrar</button>
+        </dialog>
+       </main>
+
+</body>
+</html>

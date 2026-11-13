@@ -1,0 +1,35 @@
+{
+  "name": "practicajs-pokememory",
+  "version": "1.0.0",
+  "description": "Pokémon Memory Game – JavaScript Vanilla",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:html",
+    "lint:js": "eslint .",
+    "lint:html": "htmlhint \"index.html\" \"src/**/*.html\"",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christiana-28/PracticaJS-pokememory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Christiana-28/PracticaJS-pokememory/issues"
+  },
+  "homepage": "https://github.com/Christiana-28/PracticaJS-pokememory#readme",
+  "devDependencies": {
+    "cypress": "^16.3.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "htmlhint": "^1.9.2",
+    "http-server": "^14.1.1"
+  },
+  "allowScripts": {
+    "cypress@16.3.0": true
+  }
+}
