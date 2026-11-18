@@ -1,4 +1,3 @@
-
 import {
     startGame,
     stopTimer,

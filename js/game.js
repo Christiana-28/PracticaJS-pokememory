@@ -1,4 +1,3 @@
-
 import { showModal } from "./ui.js";
 
 // Game variables
