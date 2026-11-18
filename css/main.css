@@ -1,5 +1,7 @@
+/* ========================================
+   GENERAL STYLING
+======================================== */
 
-/* GENERAL STYLING */
 * {
     box-sizing: border-box;
 }
@@ -8,7 +10,7 @@ body {
     margin: 0;
     padding: 30px 20px;
     font-family: Arial, sans-serif;
-    background-color: #f5f6fa;
+    background-color: #eeeeee;
     color: #263238;
 }
 
@@ -18,49 +20,131 @@ main {
     margin: 0 auto;
 }
 
+/* ========================================
+   POKEMON HEADER
+======================================== */
+
 h1 {
+    position: relative;
     text-align: center;
-    font-size: 36px;
-    margin: 10px 0 35px;
+    font-size: 42px;
+    margin: 10px 0 40px;
+    padding: 26px 15px 38px;
+    color: #ffcb05;
+    background: #24529c;
+    -webkit-text-stroke: 2px #173b70;
+    text-shadow:
+        3px 3px 0 #173b70,
+        5px 5px 0 #333333;
+    letter-spacing: 1px;
 }
 
-/* HIDDEN SECTIONS */
+/* BLACK DIVIDER */
+h1::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 11px;
+    background: #333333;
+}
+
+/* POKEBALL DECORATION */
+h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -16px;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    border: 6px solid #333333;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            #ffffff 0 27%,
+            #333333 28% 43%,
+            transparent 44%
+        ),
+        linear-gradient(
+            to bottom,
+            #eeeeee 0 48%,
+            #333333 49% 52%,
+            #eeeeee 53% 100%
+        );
+    z-index: 2;
+}
+
+/* ========================================
+   HIDDEN SECTIONS
+======================================== */
+
 [hidden] {
     display: none !important;
 }
 
-/* REGISTRATION */
+/* ========================================
+   REGISTRATION
+======================================== */
+
 #registration {
-    max-width: 450px;
+    max-width: 460px;
     margin: 0 auto 30px;
-    padding: 25px;
+    padding: 30px;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #dddddd;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
 }
 
 #registration h2 {
     margin-top: 0;
+    margin-bottom: 20px;
+    color: #24529c;
 }
 
 #user-form div {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 #user-form label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
+/* INPUTS */
 input {
     max-width: 100%;
-    padding: 10px;
-    border: 1px solid #ccd1d9;
-    border-radius: 6px;
+    padding: 12px;
+    border: 1px solid #d1d1d1;
+    border-radius: 9px;
     font-size: 15px;
+    background-color: #fbfdff;
+    transition: border 0.2s, box-shadow 0.2s;
 }
 
-/* MAIN GAME LAYOUT */
+input:focus {
+    outline: none;
+    border-color: #5b9bd5;
+    box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.15);
+}
+
+#user-form input {
+    width: 100%;
+    max-width: 350px;
+}
+
+#user-form button {
+    margin-top: 5px;
+}
+
+/* ========================================
+   MAIN GAME LAYOUT
+======================================== */
+
 #game {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -73,18 +157,23 @@ input {
 .ranking-area {
     width: 100%;
     min-width: 0;
-    padding: 25px;
+    padding: 28px;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #dddddd;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
 }
 
 .game-area h2,
 .ranking-area h2 {
     margin-top: 0;
+    color: #24529c;
 }
 
-/* GAME FORM */
+/* ========================================
+   GAME FORM
+======================================== */
+
 #game-form {
     display: flex;
     flex-wrap: wrap;
@@ -98,72 +187,98 @@ input {
 
 #timer {
     font-weight: bold;
+    color: #333333;
 }
 
-/* GAME BOARD */
+/* ========================================
+   GAME BOARD
+======================================== */
+
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 100px));
+    grid-template-columns: repeat(4, 100px);
     gap: 12px;
     margin: 25px 0;
+    align-items: start;
 }
 
+/* CARDS */
 .card {
-    width: 100%;
+    width: 100px;
     aspect-ratio: 5 / 6;
-    background-color: #2878b5;
+    background-color: #24529c;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    border: 3px solid #174d78;
-    border-radius: 10px;
+    border: 4px solid white;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover:not(.matched) {
-    transform: scale(1.04);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
 }
 
 .card.flipped {
     background-color: white;
+    border-color: #d6d6d6;
 }
 
 .card.matched {
-    background-color: #90ee90;
-    border-color: green;
+    background-color: #c8f7c5;
+    border-color: #65bd68;
     cursor: default;
 }
 
-/* BUTTONS */
+/* ========================================
+   BUTTONS
+======================================== */
+
 button {
-    padding: 10px 16px;
+    padding: 11px 18px;
     border: none;
-    border-radius: 6px;
-    background-color: #2878b5;
+    border-radius: 8px;
+    background-color: #2865a0;
     color: white;
     font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
 button:hover {
-    background-color: #174d78;
+    background-color: #173b70;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(40, 120, 181, 0.18);
 }
 
 button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
-/* RANKING */
+/* ========================================
+   RANKING
+======================================== */
+
 .ranking-area {
     min-width: 0;
-    overflow-x: hidden;
+}
+
+#ranking {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 #ranking table {
     width: 100%;
-    min-width: 0;
+    min-width: 650px;
     border-collapse: collapse;
     table-layout: fixed;
     font-size: 13px;
@@ -205,7 +320,8 @@ button:disabled {
 
 /* HEADINGS */
 #ranking th {
-    background-color: #eef3f8;
+    background-color: #28549a;
+    color: white;
     white-space: normal;
 }
 
@@ -227,75 +343,96 @@ button:disabled {
     background-color: #fff2a8;
     font-weight: bold;
 }
-/* LOGOUT */
+
+/* ========================================
+   LOGOUT
+======================================== */
+
 #logout-btn {
     margin-top: 10px;
-    background-color: #555;
+    background-color: #555555;
 }
 
-/* MODAL */
+#logout-btn:hover {
+    background-color: #3e3e3e;
+}
+
+/* ========================================
+   MODAL
+======================================== */
+
 dialog {
-    border: none;
-    border-radius: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
     padding: 25px;
     max-width: 90%;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
 }
 
 dialog::backdrop {
     background: rgba(0, 0, 0, 0.35);
 }
 
-/* TABLET AND SMALLER SCREENS */
-@media (max-width: 900px) {
-    body {
-        padding: 20px 15px;
-    }
+/* ========================================
+   TABLET
+======================================== */
 
+@media screen and (max-width: 900px) {
     #game {
-        grid-template-columns: minmax(0, 1fr);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     .game-area,
     .ranking-area {
         width: 100%;
+        max-width: 100%;
     }
 }
 
-/* MOBILE */
-@media (max-width: 480px) {
+/* ========================================
+   MOBILE
+======================================== */
+
+@media screen and (max-width: 480px) {
     body {
         padding: 15px 10px;
     }
 
     h1 {
         font-size: 28px;
-        margin-bottom: 25px;
+        padding: 22px 10px 32px;
+    }
+
+    #registration {
+        padding: 23px;
+        border-radius: 16px;
     }
 
     .game-area,
     .ranking-area {
         padding: 18px;
+        border-radius: 16px;
     }
 
-    #game-board {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
+    /* GAME FORM */
     #game-form {
         align-items: flex-start;
     }
 
-    #ranking table {
-        min-width: 650px;
+    /* GAME BOARD */
+    #game-board {
+        grid-template-columns: repeat(3, 90px);
+        gap: 10px;
     }
-}
 
-#user-form input {
-    width: 100%;
-    max-width: 350px;
-}
+    .card {
+        width: 90px;
+    }
 
-#user-form button {
-    margin-top: 5px;
+    /* RANKING TABLE */
+    #ranking table {
+        min-width: 600px;
+    }
 }
